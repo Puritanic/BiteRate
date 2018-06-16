@@ -79,6 +79,8 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-width: 100%;
+	overflow-y: hidden;
 }
 
 #footer {
@@ -158,6 +160,7 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter {
 	width: 100%;
+	max-width: 100%;
 	height: 75px;
 	background-color: #3397db;
 	display: flex;
@@ -196,7 +199,41 @@ nav h1 a {
 	flex: 1;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
+	.filter .filter__options {
+		width: 50%;
+	}
+
+	.filter__options select {
+		font-family: Arial, sans-serif;
+		letter-spacing: 0;
+		max-width: 80%;
+		flex: 1;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.filter {
+		height: auto;
+		flex-direction: row;
+		justify-content: flex-start;
+		padding: 0.5rem;
+	}
+
+	.filter .filter__title {
+		margin-left: 4rem;
+	}
+
+	.filter .filter__options {
+		width: 30%;
+	}
+
+	.filter__options select {
+		font-family: Arial, sans-serif;
+		letter-spacing: 0;
+		max-width: 80%;
+		flex: 1;
+	}
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -305,7 +342,7 @@ nav h1 a {
 
 @media only screen and (min-width: 600px) {
 	#restaurants-list {
-		padding: 3rem;
+		padding: 3rem 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -320,6 +357,7 @@ nav h1 a {
 
 @media only screen and (min-width: 800px) {
 	#restaurants-list {
+		padding: 2rem 0;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -356,6 +394,24 @@ nav h1 a {
 
 	.restaurant-card h1 {
 		font-size: 4rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	#restaurants-list li {
+		width: 30%;
+		margin: 1rem;
+	}
+}
+
+@media only screen and (min-width: 1500px) {
+	#restaurants-list {
+		padding: 1rem 0;
+	}
+
+	#restaurants-list li {
+		width: 25%;
+		margin: 1rem;
 	}
 }
 
@@ -410,7 +466,7 @@ nav h1 a {
 }
 
 #restaurant-address {
-	font-size: 14pt;
+	font-size: 14px;
 	text-align: center;
 }
 
@@ -537,4 +593,21 @@ nav h1 a {
 	text-transform: uppercase;
 	text-align: center;
 	margin: 0;
+}
+
+@media only screen and (min-width: 1000px) {
+	#restaurant-img {
+		height: 50%;
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	#restaurant-cuisine {
+		width: 50%;
+	}
+
+	#restaurant-hours {
+		width: 50%;
+		margin: 0 auto;
+	}
 }
