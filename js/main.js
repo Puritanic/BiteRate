@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', event => {
 	initMap(); // added
 	fetchNeighborhoods();
 	fetchCuisines();
+
+	/**
+	 *     Service Worker registration
+	 */
+	if (navigator.serviceWorker) {
+		navigator.serviceWorker
+			.register('sw.js')
+			.then(registration => console.log('SW registered', registration))
+			.catch(e => console.log('SW Registration failed', e));
+	}
 });
 
 /**
@@ -93,18 +103,6 @@ initMap = () => {
 
 	updateRestaurants();
 };
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
@@ -174,6 +172,7 @@ createRestaurantHTML = restaurant => {
 	infoWrapper.className = 'restaurant-info';
 	image.className = 'restaurant-img';
 	image.src = DBHelper.imageUrlForRestaurant(restaurant);
+	image.setAttribute('alt', `${restaurant.name} restaurant featured picture`);
 	li.append(image);
 	li.append(infoWrapper);
 
@@ -193,6 +192,8 @@ createRestaurantHTML = restaurant => {
 	more.innerHTML = 'View Details';
 	more.href = DBHelper.urlForRestaurant(restaurant);
 	infoWrapper.append(more);
+
+	li.setAttribute('role', 'listitem');
 
 	return li;
 };

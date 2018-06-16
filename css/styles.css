@@ -30,6 +30,7 @@ a {
 }
 
 a:hover,
+a:active,
 a:focus {
 	color: #3397db;
 	text-decoration: none;
@@ -145,7 +146,9 @@ nav h1 a {
 }
 
 /* Add a color on mouse-over */
-#breadcrumb li a:hover {
+#breadcrumb li a:hover,
+#breadcrumb li a:active,
+#breadcrumb li a:focus {
 	color: #01447e;
 	text-decoration: underline;
 }
