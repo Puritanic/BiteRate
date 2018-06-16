@@ -515,7 +515,7 @@ nav h1 a {
 	padding: 0;
 }
 
-#reviews-list ul {
+#reviews-list {
 	padding: 0;
 	width: 100%;
 	margin: 0;
@@ -609,5 +609,17 @@ nav h1 a {
 	#restaurant-hours {
 		width: 50%;
 		margin: 0 auto;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	#reviews-list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	#reviews-list li {
+		width: 30%;
+		margin: 5px;
 	}
 }
